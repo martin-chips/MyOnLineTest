@@ -8,11 +8,19 @@
     <constant name="struts.devMode" value="true"/>
 
     <package name="student" namespace="/" extends="struts-default" strict-method-invocation="false">
-        <action name="student_*" class="com.dimple.action.StudentAction" method="{1}">
+        <!--关于学生处理的action-->
+        <action name="student_*" class="studentAction" method="{1}">
             <result name="success">main.jsp</result>
-            <result name="error">main.jsp</result>
+            <!--<result name="error">main.jsp</result>-->
             <result name="input">index.jsp</result>
         </action>
+        <!--关于manager处理的action-->
+        <action name="manager_*" class="managerAction" method="{1}">
+
+
+        </action>
+
+
     </package>
 
 </struts>

@@ -52,8 +52,15 @@ public class StudentAction extends ActionSupport{
         }
         return ERROR;
     }
-
-    public String updateStudentPassword() {
+    public String readyUpdatePassword() {
+        ServletActionContext.getRequest().setAttribute("mainPage","WEB-INF/student/updateStudentPassword.jsp");
+        return SUCCESS;
+    }
+    /**
+     * 修改学生账户密码
+     * @return
+     */
+    public String updatePassword() {
 
         return NONE;
 

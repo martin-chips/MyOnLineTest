@@ -28,4 +28,13 @@ public class StudentServiceImpl implements StudentService {
         Student studentById = studentDao.getStudentById(student.getId());
         return studentById;
     }
+
+    /**
+     * 修改学生账户密码
+     * @param student
+     */
+    @Override
+    public void updatePassword(Student student) {
+
+    }
 }

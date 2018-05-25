@@ -32,17 +32,17 @@
 
         <div class="form-group">
             <label for="oldPassword">原密码：</label>
-            <input type="text" class="form-control" id="oldPassword"/>
+            <input type="password" class="form-control" id="oldPassword"/>
         </div>
 
         <div class="form-group">
             <label for="newPassword">新密码：</label>
-            <input type="text" class="form-control" id="newPassword" name="newPassword"/>
+            <input type="password" class="form-control" id="newPassword" name="newPassword"/>
         </div>
 
         <div class="form-group">
             <label for="newPassword1">确认新密码：</label>
-            <input type="text" class="form-control" id="newPassword1"/>
+            <input type="password" class="form-control" id="newPassword1"/>
         </div>
 
         <button type="submit" class="btn btn-outline-primary" style="width: 100%;">提 交</button>
@@ -59,7 +59,7 @@
             alert("请输入原密码！");
             return false;
         }
-        if (oldPassword != '${currentStudent.password}') {
+        if (oldPassword != '${currentUser.password}') {
             alert("原密码错误，请重新输入");
             return false;
         }
