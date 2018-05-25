@@ -34,7 +34,10 @@ public class StudentServiceImpl implements StudentService {
      * @param student
      */
     @Override
-    public void updatePassword(Student student) {
-
+    public Student updatePassword(Student student,String newPassword) {
+        if (studentDao.updatePassword(student, newPassword)) {
+            student.setPassword(newPassword);
+        }
+        return student;
     }
 }

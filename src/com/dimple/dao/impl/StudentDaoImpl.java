@@ -33,9 +33,9 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     /**
-     * 修改学生密码
      *
      * @param student
+     * @param newPassword
      * @return
      */
     @Override

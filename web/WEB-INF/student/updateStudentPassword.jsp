@@ -19,7 +19,7 @@
 
 <div class="container" style="width: 500px;margin-top: 50px">
     <div class="h1 text-lg-center text-info">修改密码</div>
-    <form action="" onsubmit="return checkForm()">
+    <form action="student_updatePassword" onsubmit="return checkForm()">
         <div class="form-group">
             <label for="userId">用户ID：</label>
             <input type="text" class="form-control" id="userId" value="${currentUser.id}" readonly/>

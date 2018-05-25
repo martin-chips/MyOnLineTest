@@ -1,7 +1,6 @@
 package com.dimple.dao;
 
 import com.dimple.entity.Student;
-import org.springframework.stereotype.Repository;
 
 /**
  * Created by Dimple on 2018/5/17/16:45

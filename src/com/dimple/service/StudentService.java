@@ -11,5 +11,5 @@ public interface StudentService {
     //    根据Action传过来的信息检查是否存在当前学生
     public Student checkStudent(Student student);
 
-    public void updatePassword(Student student);
+    public Student updatePassword(Student student,String newPassword);
 }
