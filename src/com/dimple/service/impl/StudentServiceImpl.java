@@ -21,6 +21,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 根据表单输入的Student对象来检查是否是正确的学生
+     *
      * @param student（表单传入的学生）
      * @return 是否是合法的学生
      */
@@ -33,10 +34,11 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 修改学生账户密码
+     *
      * @param student
      */
     @Override
-    public Student updatePassword(Student student,String newPassword) {
+    public Student updatePassword(Student student, String newPassword) {
         if (studentDao.updatePassword(student, newPassword)) {
             student.setPassword(newPassword);
         }
@@ -64,5 +66,19 @@ public class StudentServiceImpl implements StudentService {
             return;
         }
         studentDao.updateStudentById(student);
+    }
+
+    @Override
+    public void deleteStudentById(int id) {
+        if (id != 0) {
+            studentDao.deleteStudentById(id);
+        }
+    }
+
+    @Override
+    public void addStudent(Student student) {
+        if (student != null) {
+            studentDao.addStudent(student);
+        }
     }
 }

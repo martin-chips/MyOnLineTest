@@ -120,7 +120,7 @@ public class StudentAction extends ActionSupport {
         this.id = id;
     }
 
-    public String readyUpdate(){
+    public String readyUpdate() {
         Student studentById = studentService.getStudentById(id);
         if (studentById != null) {
             ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/student/studentUpdate.jsp");
@@ -130,9 +130,25 @@ public class StudentAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public String update(){
+    public String update() {
+        studentService.updateStudentById(student);
+        return "updateSuccess";
+    }
 
+    public String delete() {
 
+        studentService.deleteStudentById(id);
+        return "updateSuccess";
+
+    }
+
+    public String readyAdd(){
+        ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/student/studentAdd.jsp");
         return SUCCESS;
+    }
+    public String add(){
+
+        studentService.addStudent(student);
+        return "updateSuccess";
     }
 }

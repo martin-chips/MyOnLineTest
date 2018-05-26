@@ -27,13 +27,14 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public int addStudent(Student student) {
-        return 0;
+    public void addStudent(Student student) {
+        hibernateTemplate.save(student);
     }
 
     @Override
-    public int deleteStudent(Student student) {
-        return 0;
+    public void deleteStudentById(int id) {
+        Student student = hibernateTemplate.get(Student.class, id);
+        hibernateTemplate.delete(student);
     }
 
     /**

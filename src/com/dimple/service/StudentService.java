@@ -23,4 +23,8 @@ public interface StudentService {
 
     //    根据ID修改学生信息
     public void updateStudentById(Student student);
+
+    public void deleteStudentById(int id);
+
+    public void addStudent(Student student);
 }

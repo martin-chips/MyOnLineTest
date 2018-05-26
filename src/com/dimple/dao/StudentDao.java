@@ -13,10 +13,10 @@ public interface StudentDao {
     public Student getStudentById(int id);
 
     //     添加学生信息
-    public int addStudent(Student student);
+    public void addStudent(Student student);
 
     //    删除学生信息
-    public int deleteStudent(Student student);
+    public void deleteStudentById(int id);
 
     //    修改密码
     public boolean updatePassword(Student student, String newPassword);

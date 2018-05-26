@@ -42,4 +42,13 @@ class StudentDaoImplTest {
 
     }
 
+    @Test
+    public void addStudent(){
+        StudentDao studentDao = (StudentDao) context.getBean("studentDaoImpl");
+        studentDao.addStudent(student);
+
+
+    }
+
+
 }
