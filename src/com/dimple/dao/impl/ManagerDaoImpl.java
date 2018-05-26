@@ -23,4 +23,9 @@ public class ManagerDaoImpl implements ManagerDao {
     public void updatePassword(Manager manager,String newPassword) {
 
     }
+
+    @Override
+    public Manager getManagerById(int id) {
+       return hibernateTemplate.get(Manager.class, id);
+    }
 }

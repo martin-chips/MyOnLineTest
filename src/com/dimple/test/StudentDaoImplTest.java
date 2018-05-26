@@ -28,5 +28,18 @@ class StudentDaoImplTest {
         studentDao.updatePassword(student, "newtest");
     }
 
+    @Test
+    public void testList() {
+        StudentDao studentDao = (StudentDao) context.getBean("studentDaoImpl");
+        studentDao.listStudent();
+
+    }
+
+    @Test
+    public void testUpdateAll() {
+        StudentDao studentDao = (StudentDao) context.getBean("studentDaoImpl");
+        studentDao.updateStudentById(student);
+
+    }
 
 }

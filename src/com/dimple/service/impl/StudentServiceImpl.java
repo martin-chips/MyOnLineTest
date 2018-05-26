@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Dimple on 2018/5/17/17:17
  */
@@ -39,5 +41,28 @@ public class StudentServiceImpl implements StudentService {
             student.setPassword(newPassword);
         }
         return student;
+    }
+
+    @Override
+    public List<Student> listStudent() {
+        return studentDao.listStudent();
+    }
+
+    @Override
+    public Student getStudentById(int id) {
+        if (id == 0) {
+            return null;
+        }
+        Student studentById = studentDao.getStudentById(id);
+        return studentById;
+
+    }
+
+    @Override
+    public void updateStudentById(Student student) {
+        if (student.getId() == 0) {
+            return;
+        }
+        studentDao.updateStudentById(student);
     }
 }

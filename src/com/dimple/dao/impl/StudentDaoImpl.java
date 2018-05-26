@@ -5,11 +5,15 @@ import com.dimple.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by Dimple on 2018/5/17/16:54
  */
 @Repository
+@Transactional
 public class StudentDaoImpl implements StudentDao {
 
     //    注入hibernateTemplate
@@ -51,6 +55,24 @@ public class StudentDaoImpl implements StudentDao {
         }
         System.out.println("修改学生密码失败");
         return false;
+    }
+
+    @Override
+    public List<Student> listStudent() {
+        List<Student> byExample = hibernateTemplate.findByExample(new Student());
+        return byExample;
+    }
+
+    @Override
+    public void updateStudentById(Student student) {
+        int id = student.getId();
+        Student tempStudent = hibernateTemplate.get(Student.class, id);
+        tempStudent.setPassword(student.getPassword());
+        tempStudent.setName(student.getName());
+        tempStudent.setProfession(student.getProfession());
+        tempStudent.setIdcard(student.getIdcard());
+        tempStudent.setSex(student.getSex());
+        hibernateTemplate.save(tempStudent);
     }
 
 

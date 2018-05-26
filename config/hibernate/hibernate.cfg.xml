@@ -4,5 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/my_online_exam</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <mapping resource="com/dimple/entity/Student.hbm.xml"/>
+        <mapping class="com.dimple.entity.Student"/>
     </session-factory>
 </hibernate-configuration>  

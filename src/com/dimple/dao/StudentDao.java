@@ -2,6 +2,8 @@ package com.dimple.dao;
 
 import com.dimple.entity.Student;
 
+import java.util.List;
+
 /**
  * Created by Dimple on 2018/5/17/16:45
  */
@@ -17,7 +19,9 @@ public interface StudentDao {
     public int deleteStudent(Student student);
 
     //    修改密码
-    public boolean updatePassword(Student student,String newPassword);
+    public boolean updatePassword(Student student, String newPassword);
 
+    public List<Student> listStudent();
 
+    public void updateStudentById(Student student);
 }

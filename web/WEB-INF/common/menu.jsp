@@ -11,7 +11,7 @@
     //管理员退出系统
     function adminLogout() {
         if (confirm("您确定要退出系统吗？")) {
-            window.location.href = "admin_logout";
+            window.location.href = "manager_logout";
         }
     }
 </script>
@@ -35,5 +35,11 @@
             <li class="nav-item"><a class="nav-link" href="student_readyUpdatePassword"> 修改密码</a></li>
             <li class="nav-item"><a class="nav-link" href="javascript:studentLogout()"> 退出系统</a></li>
         </s:elseif>
+        <s:else>
+            <script>
+                alert("您不是合法用户，请退出！");
+                window.location.href = "index.jsp";
+            </script>
+        </s:else>
     </ul>
 </nav>

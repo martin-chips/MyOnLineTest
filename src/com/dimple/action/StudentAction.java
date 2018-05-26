@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by Dimple on 2018/5/17/17:27
@@ -54,13 +55,12 @@ public class StudentAction extends ActionSupport {
         Student tempStudent = studentService.checkStudent(student);//获取从数据库获取的学生信息
         if (tempStudent != null && tempStudent.getPassword().equals(student.getPassword())) {
             student = tempStudent;
-            student.setFlag(0);
             HttpSession session = ServletActionContext.getRequest().getSession();
             session.setAttribute("currentUser", student);
             session.setAttribute("flag", (int) 0);//设置mainPage的头，0标识学生，1标识管理员
             return SUCCESS;
         }
-        ServletActionContext.getRequest().setAttribute("tips","请检查账号或者密码是否输入错误！");
+        ServletActionContext.getRequest().setAttribute("tips", "请检查账号或者密码是否输入错误！");
         return ERROR;
     }
 
@@ -89,8 +89,50 @@ public class StudentAction extends ActionSupport {
         return "logout";
     }
 
+    List<Student> list;
+
+    public List<Student> getList() {
+        return list;
+    }
+
+    public void setList(List<Student> list) {
+        this.list = list;
+    }
+
+    public String list() {
+        list = studentService.listStudent();
+//        ServletActionContext.getRequest().getSession().setAttribute("studentList", students);
+        ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/student/studentList.jsp");
+        return SUCCESS;
+    }
+
     @Override
     public void validate() {
+    }
 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String readyUpdate(){
+        Student studentById = studentService.getStudentById(id);
+        if (studentById != null) {
+            ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/student/studentUpdate.jsp");
+            ServletActionContext.getRequest().setAttribute("student", studentById);
+            return SUCCESS;
+        }
+        return SUCCESS;
+    }
+
+    public String update(){
+
+
+        return SUCCESS;
     }
 }
