@@ -32,15 +32,17 @@
         <tr>
             <jsp:include page="WEB-INF/common/head.jsp"/>
         </tr>
+            <br/>
         <%--显示menu栏--%>
         <tr>
             <jsp:include page="WEB-INF/common/menu.jsp"/>
         </tr>
+            <br/>
         <%--显示主界面--%>
         <tr>
             <jsp:include page="<%=mainPage%>"/>
         </tr>
-
+            <br/>
         <tr>
             <jsp:include page="WEB-INF/common/foot.jsp"/>
         </tr>

@@ -20,14 +20,14 @@
 <div class="container" style="width: 500px;margin-top: 50px">
     <div class="h1 text-lg-center text-info">学生在线考试系统——管理员登录</div>
 
-    <form action="studentLogin.action" style="margin-top: 20px" name="form">
+    <form action="manager_login.action" style="margin-top: 20px" name="form">
         <div class="form-group">
-            <label for="student_account">账号：</label>
-            <input type="text" class="form-control" id="student_account" name="student.id" placeholder="请输入您的账号···">
+            <label for="manager_account">账号：</label>
+            <input type="text" class="form-control" id="manager_account" name="id" placeholder="请输入您的账号···">
         </div>
         <div class="form-group">
-            <label for="student_password">密码：</label>
-            <input type="password" class="form-control" id="student_password" name="student.password"
+            <label for="manager_password">密码：</label>
+            <input type="password" class="form-control" id="manager_password" name="password"
                    placeholder="请输入您的密码···">
         </div>
         <div class="form-check">

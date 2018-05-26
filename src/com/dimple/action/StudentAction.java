@@ -52,7 +52,7 @@ public class StudentAction extends ActionSupport {
     public String login() {
         System.out.println("" + student.toString());
         Student tempStudent = studentService.checkStudent(student);//获取从数据库获取的学生信息
-        if (tempStudent != null && tempStudent.getPassword().equals(tempStudent.getPassword())) {
+        if (tempStudent != null && tempStudent.getPassword().equals(student.getPassword())) {
             student = tempStudent;
             student.setFlag(0);
             HttpSession session = ServletActionContext.getRequest().getSession();
@@ -60,6 +60,7 @@ public class StudentAction extends ActionSupport {
             session.setAttribute("flag", (int) 0);//设置mainPage的头，0标识学生，1标识管理员
             return SUCCESS;
         }
+        ServletActionContext.getRequest().setAttribute("tips","请检查账号或者密码是否输入错误！");
         return ERROR;
     }
 

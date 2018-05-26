@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,8 +19,18 @@
 <body style="background: #e4ffe5">
 
 <div class="container" style="width: 500px;margin-top: 50px">
+
+    <%--输出提示框--%>
+    <s:if test="#request.tips!=null">
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%=request.getAttribute("tips")%>
+        </div>
+    </s:if>
+
     <div class="h1 text-lg-center text-info">学生在线考试系统</div>
-    <form action="student_login.action" style="margin-top: 20px" name="form" onsubmit="return checkForm()" method="post">
+    <form action="student_login.action" style="margin-top: 20px" name="form" onsubmit="return checkForm()"
+          method="post">
         <div class="form-group">
             <label for="student_account">学生账号：</label>
             <input type="text" class="form-control" id="student_account" name="student.id" placeholder="请输入您的账号···">
@@ -40,14 +51,14 @@
     </form>
 </div>
 <script>
-    function checkForm(){
-        var id=document.getElementById("student_account").value;
-        var password=document.getElementById("student_password").value;
-        if(id==null||id==""){
+    function checkForm() {
+        var id = document.getElementById("student_account").value;
+        var password = document.getElementById("student_password").value;
+        if (id == null || id == "") {
             alert("账号不能为空！");
             return false;
         }
-        if(password==null||password==""){
+        if (password == null || password == "") {
             alert("密码不能为空！");
             return false;
         }

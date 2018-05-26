@@ -13,7 +13,6 @@ import java.util.Objects;
 public class Manager {
     private int id;
     private String name;
-    private String username;
     private String password;
 
     @Id
@@ -36,15 +35,7 @@ public class Manager {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "username", nullable = true, length = 255)
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     @Basic
     @Column(name = "password", nullable = true, length = 255)
@@ -63,13 +54,12 @@ public class Manager {
         Manager manager = (Manager) o;
         return id == manager.id &&
                 Objects.equals(name, manager.name) &&
-                Objects.equals(username, manager.username) &&
                 Objects.equals(password, manager.password);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, username, password);
+        return Objects.hash(id, name, password);
     }
 }

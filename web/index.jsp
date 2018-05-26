@@ -60,7 +60,7 @@
     </div>
     <div>
         <a class="btn btn-outline-info btn-lg col" href="studentLogin.jsp" style="margin-top: 5px">学生登录</a>
-        <a class="btn btn-outline-info btn-lg col" href="adminLogin.jsp" style="margin-top: 5px">管理员登录</a>
+        <a class="btn btn-outline-info btn-lg col" href="managerLogin.jsp" style="margin-top: 5px">管理员登录</a>
     </div>
 </div>
 </body>
