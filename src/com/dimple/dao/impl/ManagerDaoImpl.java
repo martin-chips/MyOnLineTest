@@ -14,13 +14,13 @@ public class ManagerDaoImpl implements ManagerDao {
 
     @Autowired
     HibernateTemplate hibernateTemplate;
+
     /**
-     * 修改管理员账户密码
      * @param manager
+     * @param newPassword
      */
     @Override
-    public void updatePassword(Manager manager) {
-
+    public void updatePassword(Manager manager,String newPassword) {
 
     }
 }

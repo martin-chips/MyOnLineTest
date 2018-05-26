@@ -4,14 +4,14 @@
     // 学生退出登录
     function studentLogout() {
         if (confirm("您确定要退出系统吗？")) {
-            windows.location.href = "student_logout";
+            window.location.href = 'student_logout';
         }
     }
 
     //管理员退出系统
     function adminLogout() {
         if (confirm("您确定要退出系统吗？")) {
-            windows.location.href = "admin_logout";
+            window.location.href = "admin_logout";
         }
     }
 </script>

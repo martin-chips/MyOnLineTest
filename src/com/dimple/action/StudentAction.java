@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @Scope(value = "prototype")
 public class StudentAction extends ActionSupport {
-//    修改学生账号的界面传递过来的值
+    //    修改学生账号的界面传递过来的值
     private String newPassword;
 
     public String getNewPassword() {
@@ -80,6 +80,12 @@ public class StudentAction extends ActionSupport {
         ServletActionContext.getRequest().getSession().setAttribute("currentUser", student);
         ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/student/updatePasswordSuccess.jsp");
         return SUCCESS;
+    }
+
+    public String logout() {
+        //invalidate，使所有的session范围的对象失效（清空），注意此处不是清空所有的值
+        ServletActionContext.getRequest().getSession().invalidate();
+        return "logout";
     }
 
     @Override
