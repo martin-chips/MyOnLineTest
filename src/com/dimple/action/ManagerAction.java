@@ -34,10 +34,28 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
         return "logout";
     }
 
+    public String readyUpdatePassword() {
 
+        ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/manager/updateManagerPassword.jsp");
+        return SUCCESS;
+    }
 
+    private String newPassword;
 
+    public String getNewPassword() {
+        return newPassword;
+    }
 
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
+
+    public String updatePassword(){
+        Manager manager = (Manager) ServletActionContext.getRequest().getSession().getAttribute("currentUser");
+        managerService.updateManagerPassword(manager.getId(), newPassword);
+        ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/manager/updatePasswordSuccess.jsp");
+        return SUCCESS;
+    }
     @Override
     public Manager getModel() {
         return manager;

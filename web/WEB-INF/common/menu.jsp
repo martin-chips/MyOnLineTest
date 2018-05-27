@@ -25,6 +25,7 @@
             <li class="nav-item"><a class="nav-link" href="exam_examList"> 考生成绩管理</a></li>
             <li class="nav-item"><a class="nav-link" href="paper_list"> 试卷管理</a></li>
             <li class="nav-item"><a class="nav-link" href="question_list"> 题目管理</a></li>
+            <li class="nav-item"><a class="nav-link" href="manager_readyUpdatePassword"> 修改密码</a></li>
             <li class="nav-item"><a class="nav-link" href="javascript:adminLogout()"> 退出系统</a></li>
         </s:if>
         <%--为其他表示是学生登陆--%>

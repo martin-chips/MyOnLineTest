@@ -10,8 +10,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by Dimple on 2018/5/17/16:56
  */
 class StudentDaoImplTest {
-    ApplicationContext context;
-    Student student;
+        ApplicationContext context;
+        Student student;
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         context = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
@@ -39,15 +39,12 @@ class StudentDaoImplTest {
     public void testUpdateAll() {
         StudentDao studentDao = (StudentDao) context.getBean("studentDaoImpl");
         studentDao.updateStudentById(student);
-
     }
 
     @Test
     public void addStudent(){
         StudentDao studentDao = (StudentDao) context.getBean("studentDaoImpl");
         studentDao.addStudent(student);
-
-
     }
 
 

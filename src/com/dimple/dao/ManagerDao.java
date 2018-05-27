@@ -7,7 +7,9 @@ import com.dimple.entity.Manager;
  */
 public interface ManagerDao {
     //    修改管理员账户密码
-    public void updatePassword(Manager manager,String newPassword);
+    public void updatePassword(int id,String newPassword);
 
     public Manager getManagerById(int id);
+
+
 }

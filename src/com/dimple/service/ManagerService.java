@@ -8,4 +8,5 @@ import com.dimple.entity.Manager;
 public interface ManagerService {
     public Manager getManagerById(Manager manager);
 
+    public Manager updateManagerPassword(int id, String password);
 }

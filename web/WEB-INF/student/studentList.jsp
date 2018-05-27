@@ -5,19 +5,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <div class="text-info">学生信息管理</div>
+
 <button class="btn btn-outline-primary" style="float: right;" type="button"
         onclick="window.location.href='student_readyAdd'">添加学生信息
 </button>
-<script>
-    $("#delete").click(function () {
-        var name = $(this).next(":input").val();
-        var flag = confirm("你确定要删除" + name + "的信息吗？");
-        if (flag) {
-            return true;
-        }
-        return false;
-    })
-</script>
+
+<form action="">
+
+</form>
+
 <%--显示信息表格--%>
 <table class="table table-hover">
     <thead>
@@ -49,10 +45,19 @@
             </td>
         </tr>
     </s:iterator>
-
     </tbody>
-    <script>
 
+    <script>
+        $(function () {
+            $("#delete").click(function () {
+                var name = $(this).next(":input").val();
+                var flag = confirm("你确定要删除" + name + "的信息吗？");
+                if (flag) {
+                    return true;
+                }
+                return false;
+            })
+        })
     </script>
 </table>
 
