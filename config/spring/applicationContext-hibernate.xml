@@ -21,11 +21,9 @@
         <!--注入hibernate属性-->
         <property name="hibernateProperties">
             <props>
-                <prop key="format_sql">true</prop>
-                <prop key="show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.use_sql_comments">true</prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/my_online_exam</prop>
-                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
         <!--注入Hibernate映射文件-->

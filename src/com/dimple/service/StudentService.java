@@ -27,4 +27,8 @@ public interface StudentService {
     public void deleteStudentById(int id);
 
     public void addStudent(Student student);
+
+//    根据前台传过来的Student来查询
+    public List<Student> findStudent(Student student);
+
 }

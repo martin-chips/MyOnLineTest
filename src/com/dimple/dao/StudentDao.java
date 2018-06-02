@@ -24,4 +24,6 @@ public interface StudentDao {
     public List<Student> listStudent();
 
     public void updateStudentById(Student student);
+
+    public List<Student> getStudentByName(String name);
 }

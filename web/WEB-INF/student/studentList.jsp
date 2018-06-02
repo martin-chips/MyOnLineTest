@@ -10,8 +10,17 @@
         onclick="window.location.href='student_readyAdd'">添加学生信息
 </button>
 
-<form action="">
+<form action="student_find" method="post">
+    <div class="form-group">
+        <label for="studentId">ID：</label>
+        <input id="studentId" type="text" name="studentFindId">
+    </div>
+    <div class="form-group">
+        <label for="studentName">姓名：</label>
+        <input id="studentName" type="text" name="studentFindName" value="">
+    </div>
 
+    <button type="submit" class="btn btn-outline-primary">查询</button>
 </form>
 
 <%--显示信息表格--%>

@@ -22,7 +22,7 @@
         <s:if test="#session.flag==1">
             <li class="nav-item"><a class="nav-link" href="main.jsp">首页</a></li>
             <li class="nav-item"><a class="nav-link" href="student_list"> 考生信息管理</a></li>
-            <li class="nav-item"><a class="nav-link" href="exam_examList"> 考生成绩管理</a></li>
+            <li class="nav-item"><a class="nav-link" href="exam_list"> 考生成绩管理</a></li>
             <li class="nav-item"><a class="nav-link" href="paper_list"> 试卷管理</a></li>
             <li class="nav-item"><a class="nav-link" href="question_list"> 题目管理</a></li>
             <li class="nav-item"><a class="nav-link" href="manager_readyUpdatePassword"> 修改密码</a></li>

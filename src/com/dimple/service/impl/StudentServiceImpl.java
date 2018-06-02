@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -80,5 +81,18 @@ public class StudentServiceImpl implements StudentService {
         if (student != null) {
             studentDao.addStudent(student);
         }
+    }
+
+    @Override
+    public List<Student> findStudent(Student student) {
+        List<Student> students;
+        if (student.getId() == 0 && "".equals(student.getName())) {
+            return listStudent();
+        } else if (student.getId() != 0 && "".equals(student.getName())) {
+            students = new ArrayList<>();
+            students.add(getStudentById(student.getId()));
+            return students;
+        }
+        return studentDao.getStudentByName(student.getName());
     }
 }

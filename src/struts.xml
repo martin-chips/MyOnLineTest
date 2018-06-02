@@ -22,6 +22,11 @@
             <result name="input">index.jsp</result>
             <result name="logout">index.jsp</result>
         </action>
+        <!--paper试卷管理的action-->
+        <action name="paper_*" class="paperAction" method="{1}">
+            <result name="success">main.jsp</result>
+            <result name="paperUpdate" type="redirectAction">paper_list</result>
+        </action>
     </package>
 
 </struts>

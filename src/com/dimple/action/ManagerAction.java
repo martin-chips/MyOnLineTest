@@ -18,7 +18,8 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
     private Manager manager = new Manager();//使用模型驱动的方式获取表单信息
     @Autowired
     ManagerService managerService;
-    public String login(){
+
+    public String login() {
         Manager managerById = managerService.getManagerById(manager);
         if (managerById != null) {
             ServletActionContext.getRequest().getSession().setAttribute("currentUser", managerById);
@@ -50,12 +51,15 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
         this.newPassword = newPassword;
     }
 
-    public String updatePassword(){
+    public String updatePassword() {
         Manager manager = (Manager) ServletActionContext.getRequest().getSession().getAttribute("currentUser");
-        managerService.updateManagerPassword(manager.getId(), newPassword);
+
+        ServletActionContext.getRequest().getSession().setAttribute("currentUser", managerService.updateManagerPassword(manager.getId(), newPassword));
+
         ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/manager/updatePasswordSuccess.jsp");
         return SUCCESS;
     }
+
     @Override
     public Manager getModel() {
         return manager;

@@ -101,7 +101,6 @@ public class StudentAction extends ActionSupport {
 
     public String list() {
         list = studentService.listStudent();
-//        ServletActionContext.getRequest().getSession().setAttribute("studentList", students);
         ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/student/studentList.jsp");
         return SUCCESS;
     }
@@ -142,13 +141,42 @@ public class StudentAction extends ActionSupport {
 
     }
 
-    public String readyAdd(){
+    public String readyAdd() {
         ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/student/studentAdd.jsp");
         return SUCCESS;
     }
-    public String add(){
+
+    public String add() {
 
         studentService.addStudent(student);
         return "updateSuccess";
+    }
+
+    private int studentFindId;
+    private String studentFindName;
+
+    public int getStudentFindId() {
+        return studentFindId;
+    }
+
+    public void setStudentFindId(int studentFindId) {
+        this.studentFindId = studentFindId;
+    }
+
+    public String getStudentFindName() {
+        return studentFindName;
+    }
+
+    public void setStudentFindName(String studentFindName) {
+        this.studentFindName = studentFindName;
+    }
+
+    public String find() {
+        Student student = new Student();
+        student.setName(studentFindName);
+        student.setId(studentFindId);
+        list = studentService.findStudent(student);
+        ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/student/studentList.jsp");
+        return SUCCESS;
     }
 }

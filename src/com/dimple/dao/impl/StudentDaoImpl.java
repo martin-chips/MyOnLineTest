@@ -76,5 +76,12 @@ public class StudentDaoImpl implements StudentDao {
         hibernateTemplate.save(tempStudent);
     }
 
+    @Override
+    public List<Student> getStudentByName(String name) {
+        Student student = new Student();
+        student.setName(name);
+        return hibernateTemplate.findByExample(student);
+    }
+
 
 }
