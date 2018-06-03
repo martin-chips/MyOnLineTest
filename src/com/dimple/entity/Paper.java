@@ -4,7 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Objects;
 @Entity
 public class Paper {
     private int id;
-    private Timestamp createTime;
+    private Date createTime;
     private String name;
 
     @Id
@@ -28,11 +28,11 @@ public class Paper {
 
     @Basic
     @Column(name = "createTime", nullable = true)
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 

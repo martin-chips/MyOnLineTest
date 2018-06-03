@@ -15,5 +15,7 @@ public interface PaperDao {
 
     public void updatePaper(Paper paper);
 
-    public void add();
+    public void add(Paper paper);
+
+    public Paper getPaperById(int id);
 }

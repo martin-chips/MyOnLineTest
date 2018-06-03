@@ -1,22 +1,21 @@
 package com.dimple.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
  * Created by Dimple on 2018/5/21/21:44
  */
 @Entity
+@Table(name = "manager")
 public class Manager {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String password;
 
-    @Id
-    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -25,8 +24,6 @@ public class Manager {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name", nullable = true, length = 255)
     public String getName() {
         return name;
     }
@@ -35,10 +32,6 @@ public class Manager {
         this.name = name;
     }
 
-
-
-    @Basic
-    @Column(name = "password", nullable = true, length = 255)
     public String getPassword() {
         return password;
     }
@@ -59,7 +52,6 @@ public class Manager {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, name, password);
     }
 }

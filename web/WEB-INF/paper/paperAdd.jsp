@@ -18,7 +18,7 @@
 
     <div class="form-group">
         <label for="studentName">试卷名称：</label>
-        <input id="studentName" class="form-control" type="text" name="name" >
+        <input id="studentName" class="form-control" type="text" name="name" value="${paper.name}" >
     </div>
     <button type="submit" class="btn btn-outline-primary">保存</button>
 </form>

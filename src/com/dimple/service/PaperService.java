@@ -15,4 +15,7 @@ public interface PaperService {
 
     public void updatePaper(Paper paper);
 
+    public void addPaper(Paper paper);
+
+    public Paper getPaperById(int id);
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,6 +45,7 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 
     public String readyUpdate(){
         ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/paper/paperAdd.jsp");
+        ServletActionContext.getRequest().setAttribute("paper", paperService.getPaperById(paper.getId()));
         return SUCCESS;
     }
 
@@ -53,7 +55,9 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
     }
 
     public String add(){
-        return SUCCESS;
+        paper.setCreateTime(new Date());
+        paperService.addPaper(paper);
+        return "paperUpdate";
     }
     @Override
     public Paper getModel() {

@@ -1,17 +1,17 @@
 package com.dimple.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.sql.Timestamp;
-import java.util.Objects;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by Dimple on 2018/5/21/21:44
  */
 @Entity
+@Table(name = "question")
 public class Question {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String question;
     private String answer;
@@ -19,21 +19,29 @@ public class Question {
     private String optionB;
     private String optionC;
     private String optionD;
-    private Timestamp createTime;
-    private Integer paperId;
+    private String type;
+    private Date createTime;
+    @ManyToOne(targetEntity = Paper.class)
+    @JoinColumn(name = "paperId",referencedColumnName = "id")
+    private Paper paper;
 
-    @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
+    public Paper getPaper() {
+        return paper;
+    }
+
+    public void setPaper(Paper paper) {
+        this.paper = paper;
+    }
+    //    一个试题只能属于一个试卷
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "question", nullable = true, length = 255)
     public String getQuestion() {
         return question;
     }
@@ -42,8 +50,6 @@ public class Question {
         this.question = question;
     }
 
-    @Basic
-    @Column(name = "answer", nullable = true, length = 255)
     public String getAnswer() {
         return answer;
     }
@@ -52,8 +58,6 @@ public class Question {
         this.answer = answer;
     }
 
-    @Basic
-    @Column(name = "optionA", nullable = true, length = 255)
     public String getOptionA() {
         return optionA;
     }
@@ -62,8 +66,6 @@ public class Question {
         this.optionA = optionA;
     }
 
-    @Basic
-    @Column(name = "optionB", nullable = true, length = 255)
     public String getOptionB() {
         return optionB;
     }
@@ -72,8 +74,6 @@ public class Question {
         this.optionB = optionB;
     }
 
-    @Basic
-    @Column(name = "optionC", nullable = true, length = 255)
     public String getOptionC() {
         return optionC;
     }
@@ -82,8 +82,6 @@ public class Question {
         this.optionC = optionC;
     }
 
-    @Basic
-    @Column(name = "optionD", nullable = true, length = 255)
     public String getOptionD() {
         return optionD;
     }
@@ -92,45 +90,19 @@ public class Question {
         this.optionD = optionD;
     }
 
-    @Basic
-    @Column(name = "createTime", nullable = true)
-    public Timestamp getCreateTime() {
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    @Basic
-    @Column(name = "paperId", nullable = true)
-    public Integer getPaperId() {
-        return paperId;
-    }
-
-    public void setPaperId(Integer paperId) {
-        this.paperId = paperId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Question question1 = (Question) o;
-        return id == question1.id &&
-                Objects.equals(question, question1.question) &&
-                Objects.equals(answer, question1.answer) &&
-                Objects.equals(optionA, question1.optionA) &&
-                Objects.equals(optionB, question1.optionB) &&
-                Objects.equals(optionC, question1.optionC) &&
-                Objects.equals(optionD, question1.optionD) &&
-                Objects.equals(createTime, question1.createTime) &&
-                Objects.equals(paperId, question1.paperId);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, question, answer, optionA, optionB, optionC, optionD, createTime, paperId);
     }
 }

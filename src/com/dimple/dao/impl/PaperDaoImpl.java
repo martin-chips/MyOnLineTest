@@ -5,7 +5,6 @@ import com.dimple.entity.Paper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,7 +12,6 @@ import java.util.List;
  * Created by Dimple on 2018/6/1/18:57
  */
 @Repository
-@Transactional
 public class PaperDaoImpl implements PaperDao {
     @Autowired
     HibernateTemplate hibernateTemplate;
@@ -48,6 +46,16 @@ public class PaperDaoImpl implements PaperDao {
         Paper paperDB = hibernateTemplate.get(Paper.class, paper.getId());
         paperDB.setName(paper.getName());
         hibernateTemplate.update(paperDB);
+    }
+
+    @Override
+    public void add(Paper paper) {
+        hibernateTemplate.save(paper);
+    }
+
+    @Override
+    public Paper getPaperById(int id) {
+        return hibernateTemplate.get(Paper.class, id);
     }
 
 

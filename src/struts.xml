@@ -27,6 +27,11 @@
             <result name="success">main.jsp</result>
             <result name="paperUpdate" type="redirectAction">paper_list</result>
         </action>
+        <!--试题管理的action-->
+        <action name="question_*" class="questionAction" method="{1}">
+            <result name="success">main.jsp</result>
+            <result name="update" type="redirectAction">question_list</result>
+        </action>
     </package>
 
 </struts>
