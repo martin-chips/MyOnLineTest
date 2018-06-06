@@ -147,7 +147,6 @@ public class StudentAction extends ActionSupport {
     }
 
     public String add() {
-
         studentService.addStudent(student);
         return "updateSuccess";
     }

@@ -31,8 +31,8 @@
         <%--为其他表示是学生登陆--%>
         <s:elseif test="#session.flag==0">
             <li class="nav-item"><a class="nav-link" href="main.jsp">首页</a></li>
-            <li class="nav-item"><a class="nav-link" href="student_list"> 在线考试</a></li>
-            <li class="nav-item"><a class="nav-link" href="exam_examList"> 成绩查询</a></li>
+            <li class="nav-item"><a class="nav-link" href="paper_listSelect"> 在线考试</a></li>
+            <li class="nav-item"><a class="nav-link" href="exam_getExam?student.id=${currentUser.id}"> 成绩查询</a></li>
             <li class="nav-item"><a class="nav-link" href="student_readyUpdatePassword"> 修改密码</a></li>
             <li class="nav-item"><a class="nav-link" href="javascript:studentLogout()"> 退出系统</a></li>
         </s:elseif>

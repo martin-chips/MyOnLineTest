@@ -41,9 +41,16 @@ public class QuestionAction extends ActionSupport implements ModelDriven<Questio
         return SUCCESS;
     }
 
+    /**
+     * 查看试题
+     *
+     * @return
+     */
     public String showQuestionInfo() {
         Question questionById = questionService.getQuestionById(question.getId());
-
+        ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/question/questionShow.jsp");
+        ServletActionContext.getRequest().setAttribute("question", questionService.getQuestionById(question.getId()));//获取到所有的paper
+        ServletActionContext.getRequest().setAttribute("papers", paperService.getPaperAll());//获取到所有的paper
         return SUCCESS;
     }
 
@@ -57,7 +64,7 @@ public class QuestionAction extends ActionSupport implements ModelDriven<Questio
 
     public String update() {
         questionService.updateQuestion(question);
-        return SUCCESS;
+        return "update";
     }
 
 

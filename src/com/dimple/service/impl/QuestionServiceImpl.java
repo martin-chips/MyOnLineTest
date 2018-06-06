@@ -64,7 +64,7 @@ public class QuestionServiceImpl implements QuestionService {
         if (!"".equals(name)) {
             return questionDao.findQuestions(name);
         }
-        return null;
+        return questionDao.getQuestions();
     }
 
     @Override

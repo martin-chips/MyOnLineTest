@@ -31,18 +31,23 @@
     </tr>
     </thead>
     <tbody>
+
     <s:iterator value="questions" var="question">
+
         <tr>
             <td><s:property value="#question.id"/></td>
             <td><s:property value="#question.question"/></td>
-            <td><s:property value="#question.createTime"/></td>
             <td>
-                <s:if test="#question.type=='1'">
+                <s:date name="%{#question.createTime}" format="yyyy年MM月dd日"/>
+            </td>
+            <td>
+                <s:if test="#question.type==1">
                     单选题
-                </s:if>
-                <s:else>
-                    其他
-                </s:else>
+                </s:if><s:elseif test="#question.type==2">
+                多选题
+            </s:elseif><s:else>
+                其他
+            </s:else>
             </td>
             <td><s:property value="#question.paper.name"/></td>
             <td>

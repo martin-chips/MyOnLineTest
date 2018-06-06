@@ -6,6 +6,7 @@
 
 <struts>
     <constant name="struts.devMode" value="true"/>
+    <!--事件处理的package-->
     <package name="student" namespace="/" extends="struts-default" strict-method-invocation="false">
         <!--关于学生处理的action-->
         <action name="student_*" class="studentAction" method="{1}">
@@ -31,6 +32,15 @@
         <action name="question_*" class="questionAction" method="{1}">
             <result name="success">main.jsp</result>
             <result name="update" type="redirectAction">question_list</result>
+        </action>
+        <!--试题管理的action-->
+        <action name="exam_*" class="examAction" method="{1}">
+            <result name="success">main.jsp</result>
+            <result name="update" type="redirectAction">question_list</result>
+        </action>
+
+        <action name="*">
+            <result type="redirect">WEB-INF/common/404.jsp</result>
         </action>
     </package>
 

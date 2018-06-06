@@ -43,7 +43,7 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
         return "paperUpdate";
     }
 
-    public String readyUpdate(){
+    public String readyUpdate() {
         ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/paper/paperAdd.jsp");
         ServletActionContext.getRequest().setAttribute("paper", paperService.getPaperById(paper.getId()));
         return SUCCESS;
@@ -54,11 +54,19 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
         return SUCCESS;
     }
 
-    public String add(){
+    public String add() {
         paper.setCreateTime(new Date());
         paperService.addPaper(paper);
         return "paperUpdate";
     }
+
+    public String listSelect() {
+        //获取全部的试卷
+        papers = paperService.getPaperAll();
+        ServletActionContext.getRequest().setAttribute("mainPage", "WEB-INF/paper/selectPaper.jsp");
+        return SUCCESS;
+    }
+
     @Override
     public Paper getModel() {
         return paper;
